@@ -5,16 +5,17 @@ export default ($element, layout) => {
   const {
     qMatrix
   } = layout.qHyperCube.qDataPages[0];
-  // array with measures
-  const measuresArray = layout.qHyperCube.qMeasureInfo;
-  // dataset for line chart
-  const dataset = [];
+  console.log(layout.qHyperCube);
+
+  const measuresArray = layout.qHyperCube.qMeasureInfo; // array with measures
+  const dataset = []; // dataset for line chart
   measuresArray.forEach((measure, index) => {
-    const dataT = [];
+    const dataT = []; // temporary array for series in dataset
+    // filling temporary array with data
     qMatrix.forEach(element => {
       dataT.push([element[0].qText, element[index + 1].qNum]);
     });
-    dataset[index] = dataT;
+    dataset.push(dataT);
   });
 
   // set the data and create series
