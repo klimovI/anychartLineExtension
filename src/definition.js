@@ -25,16 +25,6 @@ export default {
             index: '-1'
           }
         },
-        backgroundColor: {
-          label: 'Background color',
-          component: 'color-picker',
-          ref: 'backgroundColor',
-          type: 'object',
-          defaultValue: {
-            color: '#6e8cff',
-            index: '-1'
-          }
-        },
         xAxis: {
           type: 'string',
           label: 'X-Axis title',
@@ -65,6 +55,10 @@ export default {
               {
                 value: 'square',
                 label: 'Square'
+              },
+              {
+                value: 'circle',
+                label: 'Circle'
               }]
             },
             markerSize: {
