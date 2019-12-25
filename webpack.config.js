@@ -11,10 +11,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: [
-          '/node_modules/',
-          '/src/anyChart/'
-        ],
+        exclude: /(node_modules|anychartBundle)/,
         loader: 'babel-loader',
         query: {
           compact: false
