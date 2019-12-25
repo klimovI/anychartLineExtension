@@ -5,7 +5,7 @@ import template from './template/template.html';
 import paint from './paint';
 import resize from './resize';
 // import controller from './controller';
-import '../anychartBundle/anychart-bundle.min';
+import '../anychart_bundle/anychart-bundle.min';
 
 export default {
   initialProperties,

@@ -11,7 +11,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules|anychartBundle)/,
+        exclude: /(node_modules|anychart_bundle)/,
         loader: 'babel-loader',
         query: {
           compact: false
