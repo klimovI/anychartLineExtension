@@ -21,7 +21,7 @@ export default {
           ref: 'lineColor',
           type: 'object',
           defaultValue: {
-            color: 'ff5866',
+            color: '#6e8cff',
             index: '-1'
           }
         },
