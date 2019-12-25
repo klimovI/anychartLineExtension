@@ -1,5 +1,6 @@
 export default ($element, layout) => {
   console.log('paint');
+  console.log(layout.myColor);
   // chart instance
   const chart = layout.anychartLine;
   const {

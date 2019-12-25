@@ -11,6 +11,27 @@ export default {
       uses: 'measures',
       min: 1,
       max: 2
+    },
+    appearance: {
+      uses: 'settings',
+      items: {
+        MyColorPicker: {
+          label: 'Color picker',
+          component: 'color-picker',
+          ref: 'myColor',
+          type: 'object',
+          defaultValue: {
+            color: 'ff5866',
+            index: '-1'
+          }
+        },
+        description2: {
+          type: 'string',
+          label: 'Description2',
+          ref: 'myNewPropertyy',
+          defaultValue: 'This is my description'
+        }
+      }
     }
   }
 };
