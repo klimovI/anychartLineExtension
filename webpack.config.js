@@ -16,7 +16,9 @@ module.exports = {
           '/src/anyChart/'
         ],
         loader: 'babel-loader',
-        query: { compact: false }
+        query: {
+          compact: false
+        }
       },
       {
         test: /\.html$/,
