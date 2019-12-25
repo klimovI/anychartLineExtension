@@ -23,6 +23,9 @@ export default ($element, layout) => {
   const yAxis = chart.yAxis();
   if (layout.yAxis) yAxis.title(layout.yAxis);
 
+  // Legend
+  chart.legend(layout.enableLegend);
+
   // Markers
   const markers = series.markers();
   if (layout.markerType) {

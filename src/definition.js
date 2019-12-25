@@ -15,7 +15,13 @@ export default {
     appearance: {
       uses: 'settings',
       items: {
-        lineColorPicker: {
+        legend: {
+          type: 'boolean',
+          label: 'Enable legend',
+          ref: 'enableLegend',
+          defaultValue: false
+        },
+        lineColor: {
           label: 'Line color',
           component: 'color-picker',
           ref: 'lineColor',
