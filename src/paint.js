@@ -15,7 +15,7 @@ export default ($element, layout) => {
 
   // set the data
   const series = chart.line(data);
-  series.normal().stroke(layout.lineColor.color);
+  series.stroke(layout.lineColor.color);
 
   // initiate drawing the chart
   chart.draw();
