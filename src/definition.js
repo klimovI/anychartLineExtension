@@ -16,10 +16,39 @@ export default {
       uses: 'settings',
       items: {
         legend: {
-          type: 'boolean',
-          label: 'Enable legend',
-          ref: 'enableLegend',
-          defaultValue: false
+          type: 'items',
+          label: 'Legend',
+          items: {
+            enableLegend: {
+              type: 'boolean',
+              label: 'Enable legend',
+              ref: 'enableLegend',
+              defaultValue: false
+            },
+            legendPosition: {
+              type: 'string',
+              component: 'dropdown',
+              label: 'Legend position',
+              ref: 'legendPosition',
+              options: [{
+                value: 'top',
+                label: 'Top'
+              },
+              {
+                value: 'bottom',
+                label: 'Bottom'
+              },
+              {
+                value: 'left',
+                label: 'Left'
+              },
+              {
+                value: 'right',
+                label: 'Right'
+              }],
+              defaultValue: 'top'
+            }
+          }
         },
         lineColor: {
           label: 'Line color',

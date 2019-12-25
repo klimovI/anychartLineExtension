@@ -1,5 +1,6 @@
 export default ($element, layout) => {
   console.log('paint');
+  console.log(layout.legendPosition);
   // chart instance
   const chart = layout.anychartLine;
   const {
@@ -32,7 +33,9 @@ export default ($element, layout) => {
   if (layout.yAxis) yAxis.title(layout.yAxis);
 
   // Legend
-  chart.legend(layout.enableLegend);
+  const chartLegend = chart.legend();
+  chartLegend.enabled(layout.enableLegend);
+  chartLegend.position(layout.legendPosition);
 
   // Markers
   const markers = series.markers();
