@@ -8,5 +8,9 @@
         "qHeight": 20
       }
     ]
+  },
+  "lineColor": {
+    "color": "ff5866",
+    "index": "-1"
   }
 }

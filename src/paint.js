@@ -1,6 +1,6 @@
 export default ($element, layout) => {
   console.log('paint');
-  console.log(layout.myColor);
+  console.log(layout.lineColor);
   // chart instance
   const chart = layout.anychartLine;
   const {
@@ -14,7 +14,8 @@ export default ($element, layout) => {
   });
 
   // set the data
-  chart.line(data);
+  const series = chart.line(data);
+  series.normal().stroke(layout.lineColor.color);
 
   // initiate drawing the chart
   chart.draw();

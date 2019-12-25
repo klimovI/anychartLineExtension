@@ -18,7 +18,7 @@ export default {
         MyColorPicker: {
           label: 'Color picker',
           component: 'color-picker',
-          ref: 'myColor',
+          ref: 'lineColor',
           type: 'object',
           defaultValue: {
             color: 'ff5866',
