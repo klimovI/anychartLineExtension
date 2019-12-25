@@ -1,21 +1,28 @@
 export default ($element, layout) => {
   console.log('paint');
-  console.log(layout.markerType);
   // chart instance
   const chart = layout.anychartLine;
   const {
     qMatrix
   } = layout.qHyperCube.qDataPages[0];
-
-  // data for line chart
-  const data = [];
-  qMatrix.forEach(element => {
-    data.push([element[0].qText, element[1].qNum]);
+  // array with measures
+  const measuresArray = layout.qHyperCube.qMeasureInfo;
+  // dataset for line chart
+  const dataset = [];
+  measuresArray.forEach((measure, index) => {
+    const dataT = [];
+    qMatrix.forEach(element => {
+      dataT.push([element[0].qText, element[index + 1].qNum]);
+    });
+    dataset[index] = dataT;
   });
 
-  // set the data
-  const series = chart.line(data);
-  series.stroke(layout.lineColor.color);
+  // set the data and create series
+  const seriesArray = [];
+  dataset.forEach(set => seriesArray.push(chart.line(set)));
+
+  const series = seriesArray[0];
+  // series.stroke(layout.lineColor.color);
 
   // Axis
   const xAxis = chart.xAxis();
