@@ -10,7 +10,7 @@ export default {
     measures: {
       uses: 'measures',
       min: 1,
-      max: 9
+      max: 10
     },
     appearance: {
       uses: 'settings',
