@@ -29,6 +29,7 @@ export default ($element, layout) => {
   // Line color
   series.color(layout.lineColor.color);
 
+
   // Axis
   const xAxis = chart.xAxis();
   if (layout.xAxis) xAxis.title(layout.xAxis);
