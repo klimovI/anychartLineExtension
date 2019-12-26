@@ -1,21 +1,22 @@
 export default function ($element, layout) {
   console.log('paint');
-  // chart instance
-  // const chart = layout.anychartLine;
   const scope = this.$scope;
-  const chart = scope.anychartLine;
-  console.log(chart.getSeriesCount());
+
+  const chart = scope.anychartLine; // chart instance
+
   const {
-    qMatrix
+    qMatrix // contains data for the chart
   } = layout.qHyperCube.qDataPages[0];
-  console.log(layout.qHyperCube.qSize.qcx);
+
+  // checks if data was changed
   if (scope.qcx == layout.qHyperCube.qSize.qcx) {
     scope.dataChanged = false;
   } else {
     scope.dataChanged = true;
-    scope.qcx = layout.qHyperCube.qSize.qcx;
+    scope.qcx = layout.qHyperCube.qSize.qcx; // contains last number of columns in data
   }
 
+  // creates series and saves data in the chart, if data for the chart was changed
   if (scope.dataChanged) {
     chart.removeAllSeries();
 
@@ -31,10 +32,10 @@ export default function ($element, layout) {
 
     // set the data for the chart
     const dataSet = window.anychart.data.set(fullDataset);
+
     // mapping chart data to create series
-    const mappings = [];
-    measuresArray.forEach((measure, index) => {
-      mappings.push(dataSet.mapAs({ x: 0, value: index + 1 }));
+    const mappings = measuresArray.map((measure, index) => {
+      return dataSet.mapAs({ x: 0, value: index + 1 });
     });
 
     // create series
@@ -43,21 +44,22 @@ export default function ($element, layout) {
     // setting names for series
     seriesArray.forEach((seriesI, index) => seriesI.name(measuresArray[index].qFallbackTitle));
   }
-  const series = chart.getSeriesAt(0);
-  const seriesArray = [];
+
+  const series = chart.getSeriesAt(0); // first series to further customise it using property panel
+  const seriesArray = []; // contains all series
   for (let i = 0; i < chart.getSeriesCount(); i++) {
     seriesArray.push(chart.getSeriesAt(i));
   }
+
+
   // Line color
   if (layout.isSingleColored) {
     seriesArray.forEach(seriesI => seriesI.color(layout.lineColor.color));
-    // seriesArray.forEach(seriesI => seriesI.area(layout.lineColor.color));
   } else {
     seriesArray.forEach((seriesI, index) => {
       seriesI.color(window.anychart.palettes.defaultPalette[index]);
     });
   }
-  console.log(window.anychart.palettes.defaultPalette);
 
   // Axis titles
   const xAxis = chart.xAxis();
