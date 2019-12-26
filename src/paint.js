@@ -20,8 +20,7 @@ export default ($element, layout) => {
   });
 
   // set the data and create series
-  const seriesArray = [];
-  dataset.forEach(set => seriesArray.push(chart.line(set)));
+  const seriesArray = dataset.map(set => chart.line(set));
 
 
   const series = seriesArray[0];
@@ -29,8 +28,8 @@ export default ($element, layout) => {
   // Line color
   if (layout.isSingleColored) {
     seriesArray.forEach(seriesI => seriesI.color(layout.lineColor.color));
+    // seriesArray.forEach(seriesI => seriesI.area(layout.lineColor.color));
   }
-
 
   // Axis
   const xAxis = chart.xAxis();
