@@ -1,3 +1,9 @@
+/**
+ * Paint function which is called every time changes in properies panel detected.
+ * @param {Object} $element - Qlik native object.
+ * @param {Object} layout  - Qlik native object.
+ * @description Paint function.
+ */
 export default function ($element, layout) {
   console.log('paint');
   const scope = this.$scope;
