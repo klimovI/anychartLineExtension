@@ -66,7 +66,8 @@ export default function ($element, layout) {
       seriesI.color(window.anychart.palettes.defaultPalette[index]);
     });
   }
-  // stroke test
+
+  // Stroke type
   series.stroke(series.color(), 1, layout.strokeType, 'round');
 
   // Axis titles
