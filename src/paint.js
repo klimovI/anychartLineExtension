@@ -27,7 +27,10 @@ export default ($element, layout) => {
   const series = seriesArray[0];
 
   // Line color
-  series.color(layout.lineColor.color);
+  // series.color(layout.lineColor.color);
+  if (layout.isSingleColored) {
+    seriesArray.forEach(seriesI => seriesI.color(layout.lineColor.color));
+  }
 
 
   // Axis

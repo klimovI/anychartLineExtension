@@ -15,38 +15,60 @@ export default {
     appearance: {
       uses: 'settings',
       items: {
-        legend: {
+        colorsAndLegend: {
           type: 'items',
-          label: 'Legend',
+          label: 'Colors and legend',
           items: {
-            enableLegend: {
+            colorScheme: {
               type: 'boolean',
-              label: 'Enable legend',
-              ref: 'enableLegend',
+              label: 'Single colored',
+              ref: 'isSingleColored',
               defaultValue: false
             },
-            legendPosition: {
-              type: 'string',
-              component: 'dropdown',
-              label: 'Legend position',
-              ref: 'legendPosition',
-              options: [{
-                value: 'top',
-                label: 'Top'
-              },
-              {
-                value: 'bottom',
-                label: 'Bottom'
-              },
-              {
-                value: 'left',
-                label: 'Left'
-              },
-              {
-                value: 'right',
-                label: 'Right'
-              }],
-              defaultValue: 'top'
+            lineColor: {
+              label: 'Color',
+              component: 'color-picker',
+              ref: 'lineColor',
+              type: 'object',
+              defaultValue: {
+                color: '#6e8cff',
+                index: '-1'
+              }
+            },
+            legend: {
+              type: 'items',
+              label: 'Legend',
+              items: {
+                enableLegend: {
+                  type: 'boolean',
+                  label: 'Enable legend',
+                  ref: 'enableLegend',
+                  defaultValue: false
+                },
+                legendPosition: {
+                  type: 'string',
+                  component: 'dropdown',
+                  label: 'Legend position',
+                  ref: 'legendPosition',
+                  options: [{
+                    value: 'top',
+                    label: 'Top'
+                  },
+                  {
+                    value: 'bottom',
+                    label: 'Bottom'
+                  },
+                  {
+                    value: 'left',
+                    label: 'Left'
+                  },
+                  {
+                    value: 'right',
+                    label: 'Right'
+                  }],
+                  defaultValue: 'top'
+                }
+              }
             }
           }
         },
@@ -107,16 +129,6 @@ export default {
               label: 'Enable lables',
               ref: 'enableLables',
               defaultValue: false
-            },
-            lineColor: {
-              label: 'Line color',
-              component: 'color-picker',
-              ref: 'lineColor',
-              type: 'object',
-              defaultValue: {
-                color: '#6e8cff',
-                index: '-1'
-              }
             }
           }
         }
