@@ -1,6 +1,6 @@
 export default ($element, layout) => {
   console.log('paint');
-  console.log(layout.legendPosition);
+  console.log(layout.enableLables);
   // chart instance
   const chart = layout.anychartLine;
   const {
@@ -24,7 +24,9 @@ export default ($element, layout) => {
   dataset.forEach(set => seriesArray.push(chart.line(set)));
 
   const series = seriesArray[0];
-  // series.stroke(layout.lineColor.color);
+
+  // Line color
+  series.stroke(layout.lineColor.color);
 
   // Axis
   const xAxis = chart.xAxis();
@@ -44,6 +46,9 @@ export default ($element, layout) => {
     markers.size(layout.markerSize);
     markers.type(layout.markerType);
   }
+
+  // Labels
+  series.labels(layout.enableLables);
 
 
   // initiate drawing the chart
