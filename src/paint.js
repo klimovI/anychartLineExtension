@@ -11,7 +11,8 @@ export default ($element, layout) => {
   // dataset for line chart
   const fullDataset = qMatrix.map(element => {
     const returnedArray = [element[0].qText];
-    measuresArray.forEach((measure, index) => returnedArray.push(element[index + 1].qNum));
+    const measureData = measuresArray.map((measure, index) => element[index + 1].qNum);
+    returnedArray.push(...measureData);
     return returnedArray;
   });
 
