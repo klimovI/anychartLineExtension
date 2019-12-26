@@ -24,7 +24,7 @@ export default function ($element, layout) {
 
   // creates series and saves data in the chart, if data for the chart was changed
   if (scope.dataChanged) {
-    chart.removeAllSeries();
+    chart.removeAllSeries(); // removes old series to create new one
 
     const measuresArray = layout.qHyperCube.qMeasureInfo; // array with measures
 
