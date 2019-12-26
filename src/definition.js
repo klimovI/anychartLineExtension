@@ -138,6 +138,25 @@ export default {
               label: 'Enable lables',
               ref: 'enableLables',
               defaultValue: false
+            },
+            strokeType: {
+              type: 'string',
+              label: 'Stroke type',
+              component: 'dropdown',
+              ref: 'strokeType',
+              options: [{
+                value: '5 0',
+                label: 'Solid'
+              },
+              {
+                value: '5 5',
+                label: 'Dasded'
+              },
+              {
+                value: '2 2',
+                label: 'Dotted'
+              }],
+              defaultValue: '5 0'
             }
           }
         }
