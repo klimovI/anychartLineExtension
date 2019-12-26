@@ -21,8 +21,17 @@ export default {
           items: {
             colorScheme: {
               type: 'boolean',
-              label: 'Single colored',
+              component: 'dropdown',
+              label: 'Color scheme',
               ref: 'isSingleColored',
+              options: [{
+                value: false,
+                label: 'Multicolored'
+              },
+              {
+                value: true,
+                label: 'Single color'
+              }],
               defaultValue: false
             },
             lineColor: {
