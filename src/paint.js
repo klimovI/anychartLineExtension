@@ -52,7 +52,12 @@ export default function ($element, layout) {
   if (layout.isSingleColored) {
     seriesArray.forEach(seriesI => seriesI.color(layout.lineColor.color));
     // seriesArray.forEach(seriesI => seriesI.area(layout.lineColor.color));
+  } else {
+    seriesArray.forEach((seriesI, index) => {
+      seriesI.color(window.anychart.palettes.defaultPalette[index]);
+    });
   }
+  console.log(window.anychart.palettes.defaultPalette);
 
   // Axis titles
   const xAxis = chart.xAxis();
@@ -73,6 +78,7 @@ export default function ($element, layout) {
     markers.type(layout.markerType);
   } else {
     markers.enabled(false);
+    markers.type('circle');
   }
 
   // Labels
