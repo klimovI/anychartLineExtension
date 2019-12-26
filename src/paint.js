@@ -1,27 +1,36 @@
 export default ($element, layout) => {
   console.log('paint');
-  console.log(layout.enableLables);
   // chart instance
   const chart = layout.anychartLine;
   const {
     qMatrix
   } = layout.qHyperCube.qDataPages[0];
-  console.log(qMatrix);
 
   const measuresArray = layout.qHyperCube.qMeasureInfo; // array with measures
-  const dataset = []; // dataset for line chart
-  measuresArray.forEach((measure, index) => {
-    // filling temporary array with data for dataset
-    const dataT = qMatrix.map(element => [element[0].qText, element[index + 1].qNum]);
-    dataset.push(dataT);
+
+  // dataset for line chart
+  const fullDataset = qMatrix.map(element => {
+    const returnedArray = [element[0].qText];
+    measuresArray.forEach((measure, index) => returnedArray.push(element[index + 1].qNum));
+    return returnedArray;
   });
 
-  // set the data and create series
-  const seriesArray = dataset.map(set => chart.line(set));
+  // set the data for the chart
+  const dataSet = window.anychart.data.set(fullDataset);
+  // mapping chart data to create series
+  const mappings = [];
+  measuresArray.forEach((measure, index) => {
+    mappings.push(dataSet.mapAs({ x: 0, value: index + 1 }));
+  });
+
+  // create series
+  const seriesArray = mappings.map(mapping => chart.line(mapping));
+
   // setting names for series
   seriesArray.forEach((seriesI, index) => seriesI.name(measuresArray[index].qFallbackTitle));
 
   const series = seriesArray[0];
+
 
   // Line color
   if (layout.isSingleColored) {
