@@ -23,6 +23,7 @@ export default ($element, layout) => {
   const seriesArray = [];
   dataset.forEach(set => seriesArray.push(chart.line(set)));
 
+
   const series = seriesArray[0];
 
   // Line color
