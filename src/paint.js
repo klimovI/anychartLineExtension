@@ -51,7 +51,7 @@ export default function ($element, layout) {
     seriesArray.forEach((seriesI, index) => seriesI.name(measuresArray[index].qFallbackTitle));
   }
 
-  const series = chart.getSeriesAt(0); // first series to further customise it using property panel
+  const series = chart.getSeriesAt(layout.selectedSeries); // first series to further customise it using property panel
   const seriesArray = []; // contains all series
   for (let i = 0; i < chart.getSeriesCount(); i++) {
     seriesArray.push(chart.getSeriesAt(i));

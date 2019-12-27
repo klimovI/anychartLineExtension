@@ -99,6 +99,22 @@ export default {
               type: 'items',
               label: 'Markers',
               items: {
+                selectedSeries: {
+                  type: 'number',
+                  component: 'dropdown',
+                  label: 'Series',
+                  ref: 'selectedSeries',
+                  options: (scope, qlikClass) => {
+                    const { qMeasureInfo } = qlikClass.layout.qHyperCube;
+                    return qMeasureInfo.map((item, index) => {
+                      return {
+                        value: index,
+                        label: item.qFallbackTitle
+                      };
+                    });
+                  },
+                  defaultValue: 0
+                },
                 markerType: {
                   type: 'string',
                   component: 'radiobuttons',
