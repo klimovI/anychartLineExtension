@@ -57,6 +57,14 @@ export default function ($element, layout) {
     seriesArray.push(chart.getSeriesAt(i));
   }
 
+  // Clear styles
+  seriesArray.forEach(element => {
+    element.labels(layout.enableLables);
+    element.stroke(element.color(), 1, '5 0', 'round');
+    element.markers().enabled(false);
+    element.markers().type(null);
+  });
+
 
   // Line color
   if (layout.isSingleColored) {
