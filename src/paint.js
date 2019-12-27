@@ -51,7 +51,7 @@ export default function ($element, layout) {
     seriesArray.forEach((seriesI, index) => seriesI.name(measuresArray[index].qFallbackTitle));
   }
 
-  const series = chart.getSeriesAt(layout.selectedSeries); // first series to further customise it using property panel
+  const series = chart.getSeriesAt(layout.selectedSeries); // selected series to customise
   const seriesArray = []; // contains all series
   for (let i = 0; i < chart.getSeriesCount(); i++) {
     seriesArray.push(chart.getSeriesAt(i));
@@ -62,8 +62,8 @@ export default function ($element, layout) {
   if (layout.isSingleColored) {
     seriesArray.forEach(seriesI => seriesI.color(layout.lineColor.color));
   } else {
-    seriesArray.forEach((seriesI, index) => {
-      seriesI.color(window.anychart.palettes.defaultPalette[index]);
+    seriesArray.forEach(seriesI => {
+      seriesI.color(null);
     });
   }
 
@@ -89,7 +89,7 @@ export default function ($element, layout) {
     markers.type(layout.markerType);
   } else {
     markers.enabled(false);
-    markers.type('circle');
+    markers.type(null);
   }
 
   // Labels

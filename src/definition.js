@@ -102,7 +102,7 @@ export default {
                 selectedSeries: {
                   type: 'number',
                   component: 'dropdown',
-                  label: 'Series',
+                  label: 'Select series to modify',
                   ref: 'selectedSeries',
                   options: (scope, qlikClass) => {
                     const { qMeasureInfo } = qlikClass.layout.qHyperCube;
