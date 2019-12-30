@@ -59,9 +59,7 @@ export default function ($element, layout) {
   if (layout.isSingleColored) {
     seriesArray.forEach(seriesI => seriesI.color(layout.lineColor.color));
   } else {
-    seriesArray.forEach(seriesI => {
-      seriesI.color(null);
-    });
+    seriesArray.forEach(seriesI => seriesI.color(null));
   }
 
   // Clear styles
