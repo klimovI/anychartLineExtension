@@ -39,9 +39,8 @@ export default function ($element, layout) {
     const dataSet = window.anychart.data.set(fullDataset);
 
     // mapping chart data to create series
-    const mappings = measuresArray.map((measure, index) => {
-      return dataSet.mapAs({ x: 0, value: index + 1 });
-    });
+    const mappings = measuresArray.map((measure, index) => dataSet
+      .mapAs({ x: 0, value: index + 1 }));
 
     // create series
     scope.seriesArray = mappings.map(mapping => chart.line(mapping));

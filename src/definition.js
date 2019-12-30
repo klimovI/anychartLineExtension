@@ -106,12 +106,10 @@ export default {
                   ref: 'selectedSeries',
                   options: (scope, qlikClass) => {
                     const { qMeasureInfo } = qlikClass.layout.qHyperCube;
-                    return qMeasureInfo.map((item, index) => {
-                      return {
-                        value: index,
-                        label: item.qFallbackTitle
-                      };
-                    });
+                    return qMeasureInfo.map((item, index) => ({
+                      value: index,
+                      label: item.qFallbackTitle
+                    }));
                   },
                   defaultValue: 0
                 },
