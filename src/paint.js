@@ -5,9 +5,6 @@
  * @description Paint function.
  */
 export default function ($element, layout) {
-  console.log('paint');
-  console.log(layout.isSingleColored);
-  console.log(layout.lineColor);
   const scope = this.$scope;
 
   const chart = scope.anychartLine; // chart instance
@@ -61,7 +58,6 @@ export default function ($element, layout) {
 
   // Line color
   if (layout.isSingleColored) {
-    console.log(seriesArray);
     seriesArray.forEach(seriesI => seriesI.color(layout.lineColor.color));
   } else {
     seriesArray.forEach((seriesI, index) => {
