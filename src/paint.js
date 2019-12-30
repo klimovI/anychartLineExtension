@@ -5,6 +5,9 @@
  * @description Paint function.
  */
 export default function ($element, layout) {
+  console.log('paint');
+  console.log(layout.isSingleColored);
+  console.log(layout.lineColor);
   const scope = this.$scope;
 
   const chart = scope.anychartLine; // chart instance
@@ -44,16 +47,27 @@ export default function ($element, layout) {
     });
 
     // create series
-    const seriesArray = mappings.map(mapping => chart.line(mapping));
+    const seriesArrayMap = mappings.map(mapping => chart.line(mapping));
 
     // setting names for series
-    seriesArray.forEach((seriesI, index) => seriesI.name(measuresArray[index].qFallbackTitle));
+    seriesArrayMap.forEach((seriesI, index) => seriesI.name(measuresArray[index].qFallbackTitle));
   }
 
   const series = chart.getSeriesAt(layout.selectedSeries); // selected series to customise
   const seriesArray = []; // contains all series
   for (let i = 0; i < chart.getSeriesCount(); i++) {
     seriesArray.push(chart.getSeriesAt(i));
+  }
+
+  // Line color
+  if (layout.isSingleColored) {
+    console.log(seriesArray);
+    seriesArray.forEach(seriesI => seriesI.color(layout.lineColor.color));
+  } else {
+    seriesArray.forEach((seriesI, index) => {
+      // seriesI.color(null);
+      seriesI.color(window.anychart.palettes.defaultPalette[index]);
+    });
   }
 
   // Clear styles
@@ -63,16 +77,6 @@ export default function ($element, layout) {
     element.markers().enabled(false);
     element.markers().type(null);
   });
-
-
-  // Line color
-  if (layout.isSingleColored) {
-    seriesArray.forEach(seriesI => seriesI.color(layout.lineColor.color));
-  } else {
-    seriesArray.forEach(seriesI => {
-      seriesI.color(null);
-    });
-  }
 
   // Stroke type
   series.stroke(series.color(), 1, layout.strokeType, 'round');
