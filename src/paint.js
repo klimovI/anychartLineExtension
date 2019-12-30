@@ -5,7 +5,6 @@
  * @description Paint function.
  */
 export default function ($element, layout) {
-  console.log('paint');
   const scope = this.$scope;
 
   const chart = scope.anychartLine; // chart instance
