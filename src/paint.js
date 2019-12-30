@@ -60,9 +60,8 @@ export default function ($element, layout) {
   if (layout.isSingleColored) {
     seriesArray.forEach(seriesI => seriesI.color(layout.lineColor.color));
   } else {
-    seriesArray.forEach((seriesI, index) => {
-      // seriesI.color(null);
-      seriesI.color(window.anychart.palettes.defaultPalette[index]);
+    seriesArray.forEach(seriesI => {
+      seriesI.color(null);
     });
   }
 
