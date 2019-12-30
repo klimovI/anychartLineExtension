@@ -44,17 +44,16 @@ export default function ($element, layout) {
     });
 
     // create series
-    const seriesArrayMap = mappings.map(mapping => chart.line(mapping));
+    scope.seriesArray = mappings.map(mapping => chart.line(mapping));
 
     // setting names for series
-    seriesArrayMap.forEach((seriesI, index) => seriesI.name(measuresArray[index].qFallbackTitle));
+    scope.seriesArray.forEach((seriesI, index) => {
+      seriesI.name(measuresArray[index].qFallbackTitle);
+    });
   }
 
   const series = chart.getSeriesAt(layout.selectedSeries); // selected series to customise
-  const seriesArray = []; // contains all series
-  for (let i = 0; i < chart.getSeriesCount(); i++) {
-    seriesArray.push(chart.getSeriesAt(i));
-  }
+  const { seriesArray } = scope; // contains all series
 
   // Line color
   if (layout.isSingleColored) {
